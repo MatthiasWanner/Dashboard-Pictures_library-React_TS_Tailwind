@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 function Layout() {
   return (
-    <div className="layout flex w-full h-full">
+    <div className="layout flex w-full h-full rounded-3xl shadow-themeShadow overflow-hidden">
       <Sidebar />
       <MainContainer />
     </div>
