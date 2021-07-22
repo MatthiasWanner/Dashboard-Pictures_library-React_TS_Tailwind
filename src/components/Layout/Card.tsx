@@ -8,8 +8,8 @@ interface IProps {
 
 function Card({ title, className, children }: IProps): JSX.Element {
   return (
-    <div className={`rounded-xl bg-customPurple ${className}`}>
-      <div className="card-title">{title}</div>
+    <div className={`rounded-xl bg-customPurple text-white shadow-themeShadow ${className}`}>
+      <div className="card-title font-medium text-3xl">{title}</div>
       <div className={'card-content'}>{children}</div>
     </div>
   );

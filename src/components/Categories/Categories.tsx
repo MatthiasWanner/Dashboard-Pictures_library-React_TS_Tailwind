@@ -7,7 +7,7 @@ import AllCategories from './AllCategories';
 function Categories() {
   return (
     <Content>
-      <Card title="Catégories">
+      <Card title="Catégories" className="w-1/2 h-full">
         <AllCategories />
       </Card>
     </Content>
