@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Layout from './components/layout';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App w-screen md:h-screen">
       <Layout />
