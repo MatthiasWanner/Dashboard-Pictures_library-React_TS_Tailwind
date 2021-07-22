@@ -5,6 +5,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        robotoBold: ['roboto', 'sans-serif'],
+      },
       boxShadow: {
         themeShadow: '5px 5px 10px 1px rgba(0, 0, 0, 0.3)',
       },
