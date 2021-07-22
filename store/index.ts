@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import userReducer from './user.slice';
+import categoriesReducer from './categories.slice';
 
 const customizedMiddleware = (
   getDefaultMiddleware: any //TODO: fix any type
@@ -10,7 +11,7 @@ const customizedMiddleware = (
   });
 
 export const store = configureStore({
-  reducer: { user: userReducer },
+  reducer: { user: userReducer, categories: categoriesReducer },
   devTools: true,
   middleware: customizedMiddleware,
 });
