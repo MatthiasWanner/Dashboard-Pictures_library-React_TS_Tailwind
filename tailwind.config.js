@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         customBlue: '#222d5a',
-        customPurple: '7183b3',
+        customPurple: '#7183b3',
       },
     },
   },
