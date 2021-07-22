@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '.';
+import UpdateCategory from '../src/components/Categories/UpdateCategory.tsx';
 
 interface Category {
   id: string;
@@ -25,6 +26,10 @@ interface ReturnUseCategoriesFromStore {
     type: string;
     payload: Category;
   };
+  dispatchUpdateCategory: (payload: { id: string; name: string }) => {
+    type: string;
+    payload: { id: string; name: string };
+  };
   dispatchResetState: () => {
     type: string;
   };
@@ -44,6 +49,12 @@ export const categoriesSlice = createSlice({
       state.push(action.payload);
     },
 
+    updateCategory: (state, action: PayloadAction<{ id: string; name: string }>) => {
+      const index = state.findIndex((category) => category.id === action.payload.id);
+      const updatedCategory = { ...state[index], name: action.payload.name };
+      state.splice(index as number, 1, updatedCategory);
+    },
+
     deleteCategory: (state, action: PayloadAction<string>) => {
       const index = state.findIndex((category) => category.id === action.payload);
       state.splice(index as number, 1);
@@ -53,13 +64,14 @@ export const categoriesSlice = createSlice({
   },
 });
 
-export const { initSate, addCategory, deleteCategory, resetState } = categoriesSlice.actions;
+export const { initSate, addCategory, updateCategory, deleteCategory, resetState } = categoriesSlice.actions;
 
 export const useCategoriesFromStore = (): ReturnUseCategoriesFromStore => {
   const categories = useSelector((state: RootState) => state.categories);
   const dispatch = useDispatch();
   const dispatchInitSate = (payload: Category[]) => dispatch(initSate(payload));
   const dispatchAddCategory = (payload: Category) => dispatch(addCategory(payload));
+  const dispatchUpdateCategory = (payload: { id: string; name: string }) => dispatch(updateCategory(payload));
   const dispatchDeleteCategory = (payload: string) => dispatch(deleteCategory(payload));
   const dispatchResetState = () => dispatch(resetState());
   return {
@@ -68,6 +80,7 @@ export const useCategoriesFromStore = (): ReturnUseCategoriesFromStore => {
     dispatchDeleteCategory,
     dispatchResetState,
     dispatchAddCategory,
+    dispatchUpdateCategory,
   };
 };
 

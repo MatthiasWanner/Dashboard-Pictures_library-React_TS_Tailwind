@@ -52,7 +52,7 @@ export const categories = {
   create: (category: { name: string; userId: string }): Promise<Category> =>
     axios.post(`${API_URL}/categories`, category).then((res) => res.data),
 
-  update: (id: string, category: { name?: string; userId?: string }): Promise<null> =>
+  update: ({ id, category }: { id: string; category: { name?: string } }): Promise<null> =>
     axios.put(`${API_URL}/categories/${id}`, category).then((res) => res.data),
 
   addAlbum: (categoryId: string, albumId: string): Promise<null> =>
@@ -60,4 +60,6 @@ export const categories = {
 
   deleteAlbum: (categoryId: string, albumId: string): Promise<null> =>
     axios.delete(`${API_URL}/categories/${categoryId}/albums/${albumId}`).then((res) => res.data),
+
+  delete: (id: string): Promise<null> => axios.delete(`${API_URL}/categories/${id}`).then((res) => res.data),
 };
