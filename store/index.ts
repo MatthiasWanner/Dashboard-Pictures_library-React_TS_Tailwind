@@ -2,7 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import userReducer from './user.slice';
 
-const customizedMiddleware = (getDefaultMiddleware) =>
+const customizedMiddleware = (
+  getDefaultMiddleware: any //TODO: fix any type
+) =>
   getDefaultMiddleware({
     serializableCheck: false,
   });
