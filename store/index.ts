@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import userReducer from './user.slice';
 import categoriesReducer from './categories.slice';
+import picturesReducer from './pictures.slice';
 
 const customizedMiddleware = (
   getDefaultMiddleware: any //TODO: fix any type
@@ -11,7 +12,7 @@ const customizedMiddleware = (
   });
 
 export const store = configureStore({
-  reducer: { user: userReducer, categories: categoriesReducer },
+  reducer: { user: userReducer, categories: categoriesReducer, pictures: picturesReducer },
   devTools: true,
   middleware: customizedMiddleware,
 });

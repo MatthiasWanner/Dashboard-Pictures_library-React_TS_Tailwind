@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '.';
-import UpdateCategory from '../src/components/Categories/UpdateCategory.tsx';
 
 interface Category {
   id: string;
