@@ -15,7 +15,10 @@ interface IProps {
 function DisplayCategory({ children, className, categoryId, setIsUpdating }: IProps): JSX.Element {
   const { dispatchDeleteCategory } = useCategoriesFromStore();
 
-  const { mutate } = useMutation<null | AxiosError>(categories.delete, {
+  // TODO: Find the good T parameters to useMutation
+  /* eslint-disable @typescript-eslint/ban-ts-comment */
+  // @ts-ignore
+  const { mutate } = useMutation(categories.delete, {
     onSuccess: () => dispatchDeleteCategory(categoryId),
   });
 
