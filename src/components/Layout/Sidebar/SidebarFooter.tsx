@@ -9,7 +9,7 @@ function SidebarFooter({ className }: { className?: string }): JSX.Element {
   return (
     <div className={`sidebar-footer ${className ? className : ''}`}>
       <div className="flex justify-start items-center">
-        <LogoutButton className="btn btn-default w-2/12 bg-red-400 rounded-lg shadow-themeShadow p-2" />
+        <LogoutButton className="btn btn-default w-2/12 bg-red-400 rounded-full shadow-themeShadow p-2" />
         <p className="ml-5 text-xl">{user.username}</p>
       </div>
     </div>
