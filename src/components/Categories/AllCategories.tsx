@@ -7,7 +7,7 @@ import { users } from '../../API/requests';
 import DisplayCategory from './DisplayCategory';
 import UpdateCategory from './UpdateCategory.tsx';
 
-function AllCategories(): JSX.Element {
+function AllCategories({ className }: { className?: string }): JSX.Element {
   const [isUpdating, setIsUpdating] = useState<string>('');
 
   const { user } = useUserFromStore();
@@ -19,9 +19,9 @@ function AllCategories(): JSX.Element {
   });
 
   return (
-    <>
+    <div className={`${className ? className : ''}`}>
       {categories.map((category) => (
-        <div key={category.id} className="category-container w-full border-b border-white mt-5 py-5">
+        <div key={category.id} className={`category-container w-full border-b border-white mt-5 py-5`}>
           {isUpdating === category.id ? (
             <UpdateCategory categoryId={category.id} setIsUpdating={setIsUpdating} />
           ) : (
@@ -35,7 +35,7 @@ function AllCategories(): JSX.Element {
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 }
 

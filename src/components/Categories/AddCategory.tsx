@@ -7,7 +7,7 @@ import { categories } from '../../API/requests';
 import InputComponent from '../FormComponents/InputComponent';
 import ValidateButton from '../FormComponents/ValidateButton';
 
-function AddCategory(): JSX.Element {
+function AddCategory({ className }: { className?: string }): JSX.Element {
   const { user } = useUserFromStore();
   const { dispatchAddCategory } = useCategoriesFromStore();
 
@@ -20,11 +20,22 @@ function AddCategory(): JSX.Element {
 
   return (
     <form
-      className="flex w-full"
+      className={`w-full ${className ? className : ''}`}
       onSubmit={handleSubmit((data) => mutate({ name: data.name, userId: user.id as string }))}
     >
-      <InputComponent value="name" type="text" register={register} className="text-black" />
-      <ValidateButton text="Ajouter" type="submit" />
+      <InputComponent
+        value="name"
+        type="text"
+        register={register}
+        labelClassName="text-black w-8/12"
+        inputClassname="w-full px-5 py-2 rounded-lg text-xl shadow-themeShadow"
+      />
+      <ValidateButton
+        type="submit"
+        className="bg-green-300 rounded-lg shadow-themeShadow text-xl px-5 py-2 text-green-800"
+      >
+        Ajouter
+      </ValidateButton>
     </form>
   );
 }

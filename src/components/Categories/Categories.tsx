@@ -9,8 +9,9 @@ function Categories() {
   return (
     <Content>
       <Card title="Catégories" className="w-1/2 h-full">
-        <AllCategories />
-        <AddCategory />
+        <AllCategories className="h-5/6" />
+
+        <AddCategory className="flex justify-around h-1/6 items-center border-t border-white bg-customPurple" />
       </Card>
     </Content>
   );
