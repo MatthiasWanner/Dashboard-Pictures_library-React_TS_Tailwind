@@ -12,7 +12,7 @@ interface IPicture {
 }
 
 // TODO: find the good dispatch types
-interface ReturnUseCategoriesFromStore {
+interface ReturnUsePicturesFromStore {
   pictures: IPicture[];
   dispatchInitSate: (payload: IPicture[]) => {
     type: string;
@@ -66,7 +66,7 @@ export const picturesSlice = createSlice({
 
 export const { initSate, addPicture, updatePicture, deletePicture, resetState } = picturesSlice.actions;
 
-export const useCategoriesFromStore = (): ReturnUseCategoriesFromStore => {
+export const usePicturesFromStore = (): ReturnUsePicturesFromStore => {
   const pictures = useSelector((state: RootState) => state.pictures);
   const dispatch = useDispatch();
   const dispatchInitSate = (payload: IPicture[]) => dispatch(initSate(payload));
