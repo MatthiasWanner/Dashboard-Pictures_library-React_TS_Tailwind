@@ -4,11 +4,11 @@ import { HomeIcon, PhotographIcon, ClipboardListIcon } from '@heroicons/react/so
 
 import MenuItem from './MenuItem';
 
-function Menu(): JSX.Element {
+function Menu({ className }: { className?: string }): JSX.Element {
   const history = useHistory();
 
   return (
-    <div className="menu flex flex-col items-start p-5">
+    <div className={`menu flex flex-col items-start p-5 ${className ? className : ''}`}>
       <MenuItem text="Accueil" logo={HomeIcon} handleClick={() => history.push('/')} />
       <MenuItem text="Photos" logo={PhotographIcon} handleClick={() => history.push('/photos')} />
       <MenuItem text="Categories" logo={ClipboardListIcon} handleClick={() => history.push('/categories')} />

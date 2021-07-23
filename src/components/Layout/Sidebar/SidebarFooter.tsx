@@ -3,13 +3,15 @@ import React from 'react';
 import { useUserFromStore } from '../../../../store/user.slice';
 import LogoutButton from './LogoutButton';
 
-function SidebarFooter(): JSX.Element {
+function SidebarFooter({ className }: { className?: string }): JSX.Element {
   const { user } = useUserFromStore();
 
   return (
-    <div className="sidebar-footer flex items-center p-5 w-full md:h-1/12 self-end">
-      <LogoutButton />
-      <p className="ml-5">{user.username}</p>
+    <div className={`sidebar-footer ${className ? className : ''}`}>
+      <div className="flex justify-start items-center">
+        <LogoutButton className="btn btn-default w-2/12 bg-red-400 rounded-lg shadow-themeShadow p-2" />
+        <p className="ml-5 text-xl">{user.username}</p>
+      </div>
     </div>
   );
 }

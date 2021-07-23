@@ -1,9 +1,9 @@
 import React from 'react';
 import { LogoutIcon } from '@heroicons/react/solid';
 
-function LogoutButton(): JSX.Element {
+function LogoutButton({ className }: { className?: string }): JSX.Element {
   return (
-    <button className="btn btn-default w-1/5" onClick={() => {}}>
+    <button className={className ? className : ''} onClick={() => {}}>
       <LogoutIcon />
     </button>
   );
