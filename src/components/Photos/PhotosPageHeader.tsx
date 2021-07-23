@@ -2,8 +2,8 @@ import React from 'react';
 
 function PhotosPageHeader() {
   return (
-    <div className="flex w-full justify-between">
-      <h3>Vos Photos</h3>
+    <div className="flex w-full h-one justify-between">
+      <h3>Vos Photos(10)</h3>
     </div>
   );
 }

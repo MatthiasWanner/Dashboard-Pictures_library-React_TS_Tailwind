@@ -14,7 +14,11 @@ function DisplaysAllPhotos({ className }: IProps): JSX.Element {
     enabled: Boolean(user.id),
     onSuccess: (data) => console.log(data),
   });
-  return <div className={className ? className : 'w-full h-full border-t border-white'}></div>;
+  return (
+    <div className={`${className ? className : 'w-full border-t border-white'}`}>
+      <p>Content</p>
+    </div>
+  );
 }
 
 export default DisplaysAllPhotos;

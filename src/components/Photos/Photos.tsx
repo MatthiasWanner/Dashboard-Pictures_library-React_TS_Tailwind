@@ -9,7 +9,7 @@ function Photos(): JSX.Element {
   return (
     <Content>
       <PhotosPageHeader />
-      <Card title="Vos Photos" className="w-full">
+      <Card title="Médiathèque" className="w-full h-nine">
         <DisplaysAllPhotos />
       </Card>
     </Content>
