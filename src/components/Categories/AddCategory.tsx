@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
+import { stableValueHash } from 'react-query/types/core/utils';
 import { useCategoriesFromStore } from '../../../store/categories.slice';
 import { useUserFromStore } from '../../../store/user.slice';
 import { categories } from '../../API/requests';
@@ -11,10 +12,11 @@ function AddCategory({ className }: { className?: string }): JSX.Element {
   const { user } = useUserFromStore();
   const { dispatchAddCategory } = useCategoriesFromStore();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const { mutate } = useMutation(categories.create, {
     onSuccess: (data) => {
       dispatchAddCategory(data);
+      setValue('name', '');
     },
   });
 
