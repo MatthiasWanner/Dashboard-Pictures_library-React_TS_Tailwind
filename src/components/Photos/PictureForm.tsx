@@ -51,9 +51,9 @@ function PictureForm({ id }: { id?: string }) {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <InputComponent type="text" value="title" label="Titre" register={register} />
-      <InputComponent type="text" value="description" label="Description" register={register} />
-      <InputComponent type="text" value="url" label="Url" register={register} />
+      <InputComponent type="text" value="title" label="Titre" register={register} labelClassName="mt-2" />
+      <InputComponent type="text" value="description" label="Description" register={register} labelClassName="mt-2" />
+      <InputComponent type="text" value="url" label="Url" register={register} labelClassName="mt-2" />
       <ValidateButton type="submit">{id ? 'Modifier' : 'Ajouter'}</ValidateButton>
     </form>
   );

@@ -12,7 +12,7 @@ interface IProps {
 
 function InputComponent({ label, type, labelClassName, inputClassName, value, register }: IProps): JSX.Element {
   return (
-    <label className={`mt-2 ${labelClassName ? labelClassName : ''}`}>
+    <label className={`${labelClassName ? labelClassName : ''}`}>
       {label}
       <input
         type={type}
