@@ -14,7 +14,7 @@ function AllCategories({ className }: { className?: string }): JSX.Element {
   const { categories, dispatchInitSate } = useCategoriesFromStore();
 
   useQuery<Category[]>(['user', 'categories'], () => users.getCategories(user.id as string), {
-    enabled: Boolean(user.id),
+    enabled: Boolean(user.id) || Boolean(categories.length < 0),
     onSuccess: (data) => dispatchInitSate(data),
   });
 
