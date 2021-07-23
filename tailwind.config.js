@@ -15,6 +15,10 @@ module.exports = {
         customBlue: '#222d5a',
         customPurple: '#7183b3',
       },
+      height: {
+        one: '10%',
+        nine: '90%',
+      },
     },
   },
   variants: {
