@@ -12,7 +12,7 @@ interface IProps {
 
 function InputComponent({ label, type, labelClassName, inputClassName, value, register }: IProps): JSX.Element {
   return (
-    <label className={`${labelClassName ? labelClassName : ''}`}>
+    <label className={`flex flex-col ${labelClassName ? labelClassName : ''}`}>
       {label}
       <input
         type={type}
