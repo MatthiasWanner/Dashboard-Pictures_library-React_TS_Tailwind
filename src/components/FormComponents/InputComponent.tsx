@@ -6,15 +6,19 @@ interface IProps {
   type: string;
   value: string;
   labelClassName?: string;
-  inputClassname?: string;
+  inputClassName?: string;
   register: UseFormRegister<FieldValues>;
 }
 
-function InputComponent({ label, type, labelClassName, inputClassname, value, register }: IProps): JSX.Element {
+function InputComponent({ label, type, labelClassName, inputClassName, value, register }: IProps): JSX.Element {
   return (
-    <label className={labelClassName}>
+    <label className={`mt-2 ${labelClassName ? labelClassName : ''}`}>
       {label}
-      <input type={type} {...register(value)} className={inputClassname} />
+      <input
+        type={type}
+        {...register(value)}
+        className={`px-5 py-2 rounded-lg text-xl shadow-themeShadow ${inputClassName ? inputClassName : ''}`}
+      />
     </label>
   );
 }

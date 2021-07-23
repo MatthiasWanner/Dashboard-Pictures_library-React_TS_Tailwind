@@ -17,6 +17,7 @@ function DisplaysAllPhotos({ className }: IProps): JSX.Element {
     enabled: Boolean(user.id) || Boolean(pictures),
     onSuccess: (data) => dispatchInitSate(data),
   });
+
   return (
     <div className={`${className ? className : 'w-full h-full flex border-t border-white'}`}>
       {pictures.map((picture) => (

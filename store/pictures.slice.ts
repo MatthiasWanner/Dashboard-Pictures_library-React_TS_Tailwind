@@ -26,9 +26,9 @@ interface ReturnUsePicturesFromStore {
     type: string;
     payload: IPicture;
   };
-  dispatchUpdatePicture: (payload: { id: string; name: string }) => {
+  dispatchUpdatePicture: (payload: { id: string; title: string; description: string; url: string }) => {
     type: string;
-    payload: { id: string; name: string };
+    payload: { id: string; title: string; description: string; url: string };
   };
   dispatchResetState: () => {
     type: string;
@@ -49,9 +49,9 @@ export const picturesSlice = createSlice({
       state.push(action.payload);
     },
 
-    updatePicture: (state, action: PayloadAction<{ id: string; name: string }>) => {
+    updatePicture: (state, action: PayloadAction<{ id: string; title: string; description: string; url: string }>) => {
       const index = state.findIndex((picture) => picture.id === action.payload.id);
-      const updatedPicture = { ...state[index], name: action.payload.name };
+      const updatedPicture = { ...state[index], ...action.payload };
       state.splice(index as number, 1, updatedPicture);
     },
 
@@ -71,7 +71,8 @@ export const usePicturesFromStore = (): ReturnUsePicturesFromStore => {
   const dispatch = useDispatch();
   const dispatchInitSate = (payload: IPicture[]) => dispatch(initSate(payload));
   const dispatchAddPicture = (payload: IPicture) => dispatch(addPicture(payload));
-  const dispatchUpdatePicture = (payload: { id: string; name: string }) => dispatch(updatePicture(payload));
+  const dispatchUpdatePicture = (payload: { id: string; title: string; description: string; url: string }) =>
+    dispatch(updatePicture(payload));
   const dispatchDeletePicture = (payload: string) => dispatch(deletePicture(payload));
   const dispatchResetState = () => dispatch(resetState());
   return {

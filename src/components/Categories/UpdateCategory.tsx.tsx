@@ -32,8 +32,8 @@ function UpdateCategory({ categoryId, setIsUpdating }: Iprops): JSX.Element {
       className="flex w-full"
       onSubmit={handleSubmit((data) => mutate({ id: categoryId, category: { name: data.name } }))}
     >
-      <InputComponent value="name" type="text" register={register} className="text-black" />
-      <ValidateButton text="Modifier" type="submit" />
+      <InputComponent value="name" type="text" register={register} inputClassName="text-black" />
+      <ValidateButton type="submit">Modifier</ValidateButton>
       <button onClick={() => setIsUpdating('')}>Annuler</button>
     </form>
   );

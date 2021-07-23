@@ -30,7 +30,7 @@ function AddCategory({ className }: { className?: string }): JSX.Element {
         type="text"
         register={register}
         labelClassName="text-black w-8/12"
-        inputClassname="w-full px-5 py-2 rounded-lg text-xl shadow-themeShadow"
+        inputClassName="w-full"
       />
       <ValidateButton
         type="submit"

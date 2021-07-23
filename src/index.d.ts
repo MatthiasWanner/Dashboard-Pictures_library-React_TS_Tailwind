@@ -27,6 +27,7 @@ interface PictureBody {
   title?: string;
   url?: string;
   description?: string;
+  userId?: string;
 }
 
 interface Album {
