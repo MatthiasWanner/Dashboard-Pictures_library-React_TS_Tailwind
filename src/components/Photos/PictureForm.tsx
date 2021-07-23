@@ -50,11 +50,13 @@ function PictureForm({ id }: { id?: string }) {
   };
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col items-center" onSubmit={handleSubmit(onSubmit)}>
       <InputComponent type="text" value="title" label="Titre" register={register} labelClassName="mt-2" />
       <InputComponent type="text" value="description" label="Description" register={register} labelClassName="mt-2" />
       <InputComponent type="text" value="url" label="Url" register={register} labelClassName="mt-2" />
-      <ValidateButton type="submit">{id ? 'Modifier' : 'Ajouter'}</ValidateButton>
+      <ValidateButton type="submit" className="rounded-lg px-5 bg-green-400 text-gray-800 w-1/2 mt-5">
+        {id ? 'Modifier' : 'Ajouter'}
+      </ValidateButton>
     </form>
   );
 }
