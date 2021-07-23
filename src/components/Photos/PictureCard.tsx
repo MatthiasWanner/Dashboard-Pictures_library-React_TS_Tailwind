@@ -9,7 +9,7 @@ interface IProps {
 function PictureCard({ url, title, className }: IProps) {
   return (
     <button
-      className={`photo-card rounded-lg shadow-themeShadow m-2 overflow-hidden bg-gray-200 text-black ${
+      className={`photo-card rounded-lg flex flex-col justify-start shadow-themeShadow m-2 overflow-hidden bg-gray-200 text-black ${
         className ? className : ''
       }`}
     >
