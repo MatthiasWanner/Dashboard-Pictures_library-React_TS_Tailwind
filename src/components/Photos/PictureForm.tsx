@@ -45,7 +45,6 @@ function PictureForm({ id }: { id?: string }) {
   });
 
   const onSubmit = (data: IDatas) => {
-    if (id) return updatePicture(id, data as any); //TODO: Fix TS Error
     return postPicture({ ...data, userId: user.id });
   };
 
